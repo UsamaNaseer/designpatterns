@@ -14,6 +14,12 @@ import com.practice.interfaceexample.FactoryDesign.Animal;
 import com.practice.interfaceexample.FactoryDesign.AnimalFactory;
 import com.practice.interfaceexample.builder.Phone;
 import com.practice.interfaceexample.builder.PhoneBuilder;
+import com.practice.interfaceexample.command.Invoker;
+import com.practice.interfaceexample.command.Light;
+import com.practice.interfaceexample.command.LightDownCommand;
+import com.practice.interfaceexample.command.LightOffCommand;
+import com.practice.interfaceexample.command.LightOnCommand;
+import com.practice.interfaceexample.command.LightUpCommand;
 import com.practice.interfaceexample.decorator.Beverages;
 import com.practice.interfaceexample.decorator.Caramel;
 import com.practice.interfaceexample.decorator.Tea;
@@ -78,6 +84,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //get an object of Shape Circle
         Shape shape1 = shapeFactory.getShape("CIRCLE");
+
+        Light l = new Light();
+        Invoker invoker = new Invoker(new LightOnCommand(l),new LightOffCommand(l),new LightUpCommand(l),new LightDownCommand(l));
+        invoker.ClickOn();
+        invoker.ClickOff();
+        invoker.ClickUp();
+        invoker.UndoClickUp();
+        invoker.ClickOff();
+
     }
 
     @Override
