@@ -12,6 +12,9 @@ import com.practice.interfaceexample.AbstractFactoryDesign.FactoryProducer;
 import com.practice.interfaceexample.AbstractFactoryDesign.Shape;
 import com.practice.interfaceexample.FactoryDesign.Animal;
 import com.practice.interfaceexample.FactoryDesign.AnimalFactory;
+import com.practice.interfaceexample.adapter.Adaptee;
+import com.practice.interfaceexample.adapter.Adapter;
+import com.practice.interfaceexample.adapter.ITarget;
 import com.practice.interfaceexample.builder.Phone;
 import com.practice.interfaceexample.builder.PhoneBuilder;
 import com.practice.interfaceexample.command.Invoker;
@@ -92,6 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         invoker.ClickUp();
         invoker.UndoClickUp();
         invoker.ClickOff();
+
+
+        ITarget iTarget = new Adapter(new Adaptee());
+        iTarget.request();
 
     }
 
