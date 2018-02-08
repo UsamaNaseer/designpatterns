@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.practice.interfaceexample.AbstractFactoryDesign.AbstractFactory;
 import com.practice.interfaceexample.AbstractFactoryDesign.FactoryProducer;
 import com.practice.interfaceexample.AbstractFactoryDesign.Shape;
+import com.practice.interfaceexample.Facade.ShapeFacade;
 import com.practice.interfaceexample.FactoryDesign.Animal;
 import com.practice.interfaceexample.FactoryDesign.AnimalFactory;
 import com.practice.interfaceexample.adapter.Adaptee;
@@ -99,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ITarget iTarget = new Adapter(new Adaptee());
         iTarget.request();
+
+        ShapeFacade shapeFacade = new ShapeFacade();
+        shapeFacade.drawSquare();
+        shapeFacade.drawRectangle();
 
     }
 
