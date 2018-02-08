@@ -32,6 +32,8 @@ import com.practice.interfaceexample.observer.ConcreteObservable;
 import com.practice.interfaceexample.observer.ConcreteObserver;
 import com.practice.interfaceexample.mvp.presenter.presenter.ServiceExample;
 import com.practice.interfaceexample.mvp.presenter.presenter.UserPresenter;
+import com.practice.interfaceexample.proxy.IBookParser;
+import com.practice.interfaceexample.proxy.LazyBookParserProxy;
 import com.practice.interfaceexample.strategy.Duck;
 import com.practice.interfaceexample.strategy.JetFly;
 import com.practice.interfaceexample.strategy.NoQuack;
@@ -104,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ShapeFacade shapeFacade = new ShapeFacade();
         shapeFacade.drawSquare();
         shapeFacade.drawRectangle();
+
+        IBookParser iBookParser = new LazyBookParserProxy("AABCCC");
+        iBookParser.getnumberofPages();
 
     }
 
