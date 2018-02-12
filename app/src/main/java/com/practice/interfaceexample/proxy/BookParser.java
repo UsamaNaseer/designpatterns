@@ -11,6 +11,6 @@ public class BookParser implements IBookParser {
 
     @Override
     public int getnumberofPages() {
-        return 0;
+        return 2;
     }
 }

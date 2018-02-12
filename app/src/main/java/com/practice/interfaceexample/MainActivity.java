@@ -16,6 +16,8 @@ import com.practice.interfaceexample.FactoryDesign.AnimalFactory;
 import com.practice.interfaceexample.adapter.Adaptee;
 import com.practice.interfaceexample.adapter.Adapter;
 import com.practice.interfaceexample.adapter.ITarget;
+import com.practice.interfaceexample.bridge.Circle;
+import com.practice.interfaceexample.bridge.GreenCircle;
 import com.practice.interfaceexample.builder.Phone;
 import com.practice.interfaceexample.builder.PhoneBuilder;
 import com.practice.interfaceexample.command.Invoker;
@@ -109,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         IBookParser iBookParser = new LazyBookParserProxy("AABCCC");
         iBookParser.getnumberofPages();
+
+
+        com.practice.interfaceexample.bridge.Shape shape = new Circle(5,new GreenCircle());
+        shape.draw();
 
     }
 
