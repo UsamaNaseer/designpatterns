@@ -29,6 +29,9 @@ import com.practice.interfaceexample.command.LightDownCommand;
 import com.practice.interfaceexample.command.LightOffCommand;
 import com.practice.interfaceexample.command.LightOnCommand;
 import com.practice.interfaceexample.command.LightUpCommand;
+import com.practice.interfaceexample.composite.Project;
+import com.practice.interfaceexample.composite.Todo;
+import com.practice.interfaceexample.composite.TodoList;
 import com.practice.interfaceexample.decorator.Beverages;
 import com.practice.interfaceexample.decorator.Caramel;
 import com.practice.interfaceexample.decorator.Tea;
@@ -45,6 +48,9 @@ import com.practice.interfaceexample.strategy.NoQuack;
 import com.practice.interfaceexample.strategy.RubberDuck;
 import com.practice.interfaceexample.strategy.SimpleFly;
 import com.practice.interfaceexample.strategy.SimpleQuack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -125,6 +131,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         au.save();
 
 
+        List<TodoList> todoLists2 = new ArrayList<>();
+        todoLists2.add(new Todo("Third First"));
+        todoLists2.add(new Todo("Third Second"));
+        List<TodoList> todoLists = new ArrayList<>();
+        todoLists.add(new Todo("Sub First"));
+        todoLists.add(new Project("Sub Second",todoLists2));
+        List<TodoList> todoLists1 = new ArrayList<>();
+        todoLists1.add(new Todo ("Second First"));
+        todoLists1.add(new Todo ("Second Second"));
+        TodoList t3 = new Project("First",todoLists);
+        TodoList t4 = new Project("Second",todoLists1);
+        Todo t5 = new Todo("Third");
+        Todo t6 = new Todo("Fourth");
+        Log.i("Usama",t3.getHtml());
+        Log.i("Usama",t4.getHtml());
+        Log.i("Usama",t5.getHtml());
+        Log.i("Usama",t6.getHtml());
 
     }
 

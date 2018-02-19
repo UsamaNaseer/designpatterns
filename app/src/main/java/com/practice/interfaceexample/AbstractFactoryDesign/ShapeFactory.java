@@ -6,7 +6,7 @@ package com.practice.interfaceexample.AbstractFactoryDesign;
 
 public class ShapeFactory extends AbstractFactory {
     @Override
-    Shape getShape(String s) {
+    public Shape getShape(String s) {
         if("Square".equalsIgnoreCase(s))
         {
             return new Square();
@@ -19,7 +19,7 @@ public class ShapeFactory extends AbstractFactory {
     }
 
     @Override
-    Color getColor(String s) {
+    public Color getColor(String s) {
         return null;
     }
 }

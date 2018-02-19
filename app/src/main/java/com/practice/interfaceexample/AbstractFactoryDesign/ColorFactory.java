@@ -10,12 +10,12 @@ import com.practice.interfaceexample.FactoryDesign.Dog;
 
 public class ColorFactory extends AbstractFactory {
     @Override
-    Shape getShape(String s) {
+    public Shape getShape(String s) {
         return null;
     }
 
     @Override
-    Color getColor(String s) {
+    public Color getColor(String s) {
 
             if("Red".equalsIgnoreCase(s))
             {
