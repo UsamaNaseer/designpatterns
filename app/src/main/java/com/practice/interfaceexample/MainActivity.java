@@ -13,6 +13,9 @@ import com.practice.interfaceexample.AbstractFactoryDesign.Shape;
 import com.practice.interfaceexample.Facade.ShapeFacade;
 import com.practice.interfaceexample.FactoryDesign.Animal;
 import com.practice.interfaceexample.FactoryDesign.AnimalFactory;
+import com.practice.interfaceexample.TemplateMethodPattern.AdminUser;
+import com.practice.interfaceexample.TemplateMethodPattern.NormalUser;
+import com.practice.interfaceexample.TemplateMethodPattern.Record;
 import com.practice.interfaceexample.adapter.Adaptee;
 import com.practice.interfaceexample.adapter.Adapter;
 import com.practice.interfaceexample.adapter.ITarget;
@@ -115,6 +118,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         com.practice.interfaceexample.bridge.Shape shape = new Circle(5,new GreenCircle());
         shape.draw();
+
+        NormalUser u = new NormalUser();
+        u.save();
+        AdminUser au = new AdminUser();
+        au.save();
+
+
 
     }
 
