@@ -26,15 +26,15 @@ public class Project implements TodoList {
 
     @Override
     public String getHtml() {
-        String html = "<h>";
+        String html = "\n<h>";
         html += this.title +"</h>";
-        html += "<ul>";
+        html += "\n<ul>";
         for (TodoList tl : this.todoLists ) {
-            html += "<li>";
+            html += "\n<li>";
             html += tl.getHtml();
             html += "</li>";
         }
-        html += "</ul>";
+        html += "\n</ul>";
         return html;
     }
 }

@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.practice.interfaceexample.AbstractFactoryDesign.AbstractFactory;
 import com.practice.interfaceexample.AbstractFactoryDesign.FactoryProducer;
@@ -148,6 +152,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("Usama",t4.getHtml());
         Log.i("Usama",t5.getHtml());
         Log.i("Usama",t6.getHtml());
+
+
+        LayoutInflater li = getLayoutInflater();
+        //Getting the View object as defined in the customtoast.xml file
+        View layout = li.inflate(R.layout.customtoast,
+                (ViewGroup) findViewById(R.id.custom_toast_layout));
+
+        //Creating the Toast object
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.FILL_HORIZONTAL|Gravity.BOTTOM,0,0);
+        toast.setView(layout);//setting the view of custom toast layout
+        toast.show();
+
+
 
     }
 
