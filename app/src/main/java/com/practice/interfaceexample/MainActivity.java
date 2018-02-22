@@ -17,6 +17,8 @@ import com.practice.interfaceexample.AbstractFactoryDesign.Shape;
 import com.practice.interfaceexample.Facade.ShapeFacade;
 import com.practice.interfaceexample.FactoryDesign.Animal;
 import com.practice.interfaceexample.FactoryDesign.AnimalFactory;
+import com.practice.interfaceexample.Iterator.Iterator;
+import com.practice.interfaceexample.Iterator.NameRepository;
 import com.practice.interfaceexample.TemplateMethodPattern.AdminUser;
 import com.practice.interfaceexample.TemplateMethodPattern.NormalUser;
 import com.practice.interfaceexample.TemplateMethodPattern.Record;
@@ -95,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Beverages b= new Caramel(new Tea());
         Log.e("Usama" ,"" +b.cost());
 
+
+        //FactoryPattern
         AnimalFactory animalFactory = new AnimalFactory();
         Animal animal = animalFactory.getAnimal("Dog");
         animal.run();
@@ -106,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //get an object of Shape Circle
         Shape shape1 = shapeFactory.getShape("CIRCLE");
 
+       //Command Pattern
         Light l = new Light();
         Invoker invoker = new Invoker(new LightOnCommand(l),new LightOffCommand(l),new LightUpCommand(l),new LightDownCommand(l));
         invoker.ClickOn();
@@ -154,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("Usama",t6.getHtml());
 
 
+        //Custom Toast
         LayoutInflater li = getLayoutInflater();
         //Getting the View object as defined in the customtoast.xml file
         View layout = li.inflate(R.layout.customtoast,
@@ -166,6 +172,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toast.setView(layout);//setting the view of custom toast layout
         toast.show();
 
+
+        //Iterator Pattern
+        NameRepository nameRepository = new NameRepository();
+        for(Iterator iterator = nameRepository.getIterator();iterator.hasNext();)
+        {
+            String name = (String)iterator.next();
+            System.out.println("Name : " + name);
+        }
 
 
     }
