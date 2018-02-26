@@ -48,6 +48,7 @@ import com.practice.interfaceexample.mvp.presenter.presenter.ServiceExample;
 import com.practice.interfaceexample.mvp.presenter.presenter.UserPresenter;
 import com.practice.interfaceexample.proxy.IBookParser;
 import com.practice.interfaceexample.proxy.LazyBookParserProxy;
+import com.practice.interfaceexample.state.Conteext;
 import com.practice.interfaceexample.strategy.Duck;
 import com.practice.interfaceexample.strategy.JetFly;
 import com.practice.interfaceexample.strategy.NoQuack;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Phone p = new PhoneBuilder().setBattery(3000).setRam(2).getPhone();
 
 
+        //Strategy Pattern
         Duck duck = new Duck(new SimpleFly(),new NoQuack());
         duck.setFly();
         duck.setQuack();
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rbduc.duck.setQuack();
 
 
-
+        //Observer Pattern
         ConcreteObservable concreteObservable = new ConcreteObservable();
         ConcreteObserver concreteObserver = new ConcreteObserver(concreteObservable);
         concreteObservable.add(concreteObserver);
@@ -94,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         concreteObservable.notif();
         concreteObserver.display();
 
+
+        //Decorator Pattern
         Beverages b= new Caramel(new Tea());
         Log.e("Usama" ,"" +b.cost());
 
@@ -104,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         animal.run();
 
 
+        //Abstract Factory Pattern
         FactoryProducer factoryProducer = new FactoryProducer();
         AbstractFactory shapeFactory = factoryProducer.getFactory("SHAPE");
 
@@ -120,26 +125,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         invoker.ClickOff();
 
 
+        //Adapter Pattern
         ITarget iTarget = new Adapter(new Adaptee());
         iTarget.request();
 
+        //Facade Pattern
         ShapeFacade shapeFacade = new ShapeFacade();
         shapeFacade.drawSquare();
         shapeFacade.drawRectangle();
 
+        //Proxy Pattern
         IBookParser iBookParser = new LazyBookParserProxy("AABCCC");
         iBookParser.getnumberofPages();
 
 
+        //Bridge Pattern
         com.practice.interfaceexample.bridge.Shape shape = new Circle(5,new GreenCircle());
         shape.draw();
 
+
+        //Template MEthod Pattern
         NormalUser u = new NormalUser();
         u.save();
         AdminUser au = new AdminUser();
         au.save();
 
 
+        //Composite Pattern
         List<TodoList> todoLists2 = new ArrayList<>();
         todoLists2.add(new Todo("Third First"));
         todoLists2.add(new Todo("Third Second"));
@@ -180,6 +192,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String name = (String)iterator.next();
             System.out.println("Name : " + name);
         }
+
+        //State Pattern
+        Conteext conteext = new Conteext();
+        conteext.action();
+
+
+
+
+
 
 
     }
