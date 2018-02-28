@@ -46,6 +46,7 @@ import com.practice.interfaceexample.observer.ConcreteObservable;
 import com.practice.interfaceexample.observer.ConcreteObserver;
 import com.practice.interfaceexample.mvp.presenter.presenter.ServiceExample;
 import com.practice.interfaceexample.mvp.presenter.presenter.UserPresenter;
+import com.practice.interfaceexample.prototype.StudentData;
 import com.practice.interfaceexample.proxy.IBookParser;
 import com.practice.interfaceexample.proxy.LazyBookParserProxy;
 import com.practice.interfaceexample.state.Conteext;
@@ -56,6 +57,7 @@ import com.practice.interfaceexample.strategy.RubberDuck;
 import com.practice.interfaceexample.strategy.SimpleFly;
 import com.practice.interfaceexample.strategy.SimpleQuack;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button update= (Button) findViewById(R.id.button);
         Button delete= (Button) findViewById(R.id.button1);
 
+
+        //Builder Pattern
         Phone p = new PhoneBuilder().setBattery(3000).setRam(2).getPhone();
 
 
@@ -198,8 +202,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         conteext.action();
 
 
+        //Prototype Pattern
+        StudentData studentData = new StudentData();
+        studentData.loaddata();
 
-
+        try {
+            StudentData studentData1 = (StudentData) studentData.Clone();
+            Log.e("Usama", "onCreate: " + studentData1.getData());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
 
 
 
