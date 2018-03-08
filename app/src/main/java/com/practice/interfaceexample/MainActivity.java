@@ -3,6 +3,7 @@ package com.practice.interfaceexample;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,6 +30,9 @@ import com.practice.interfaceexample.bridge.Circle;
 import com.practice.interfaceexample.bridge.GreenCircle;
 import com.practice.interfaceexample.builder.Phone;
 import com.practice.interfaceexample.builder.PhoneBuilder;
+import com.practice.interfaceexample.callbacks.CallImp;
+import com.practice.interfaceexample.callbacks.ICall;
+import com.practice.interfaceexample.callbacks.Icallbackk1;
 import com.practice.interfaceexample.command.Invoker;
 import com.practice.interfaceexample.command.Light;
 import com.practice.interfaceexample.command.LightDownCommand;
@@ -214,6 +218,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
+        CallImp call =  new CallImp();
+        call.add(new ICall.ICallback<String>() {
+            @Override
+            public void call() {
+                Log.e("Usama","Callback call");
+            }
+        }, new Icallbackk1() {
+            @Override
+            public void nocall() {
+                Log.e("Usama","Callback call 2");
+            }
+        });
 
     }
 
